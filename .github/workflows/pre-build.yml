@@ -4,12 +4,10 @@ on:
     types: [labeled, unlabeled, synchronize, opened, reopened]
     branches: [ 'main' ]
 jobs:
-  run_if_flagged:
-    runs-on: ubuntu-latest
-    if: contains(join(github.event.pull_request.labels.*.name, ','), 'pre-release')
 
   build:
     runs-on: ubuntu-latest
+    if: contains(join(github.event.pull_request.labels.*.name, ','), 'pre-release')
     strategy:
       matrix:
         go-version: [ '1.23.8' ]
