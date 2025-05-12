@@ -178,7 +178,18 @@ func (r *HAEgressGatewayPolicyReconciler) UpdateOrCreateCiliumEgressGatewayPolic
 				if err != nil {
 					return err
 				}
-				logger.Info("CiliumEgressGatewayPolicy updated",
+				logger.Info("CiliumEgressGatewayPolicy updated on spec.Selectors change",
+					"CiliumEgressGatewayPolicy", ciliumEgressGatewayPolicyExist.Name)
+				r.Recorder.Event(haEgressGatewayPolicy, corev1.EventTypeNormal, "Updated",
+					fmt.Sprintf("CiliumEgressGatewayPolicy %q updated", ciliumEgressGatewayPolicyExist.Name))
+			}
+			if !reflect.DeepEqual(ciliumEgressGatewayPolicyExist.Spec.DestinationCIDRs, ciliumEgressGatewayPolicyNew.Spec.DestinationCIDRs) {
+				ciliumEgressGatewayPolicyExist.Spec.DestinationCIDRs = ciliumEgressGatewayPolicyNew.Spec.DestinationCIDRs
+				err = r.Update(ctx, ciliumEgressGatewayPolicyExist)
+				if err != nil {
+					return err
+				}
+				logger.Info("CiliumEgressGatewayPolicy updated on spec.destinationCIDRs change",
 					"CiliumEgressGatewayPolicy", ciliumEgressGatewayPolicyExist.Name)
 				r.Recorder.Event(haEgressGatewayPolicy, corev1.EventTypeNormal, "Updated",
 					fmt.Sprintf("CiliumEgressGatewayPolicy %q updated", ciliumEgressGatewayPolicyExist.Name))
