@@ -6,7 +6,7 @@ toolchain go1.23.8
 
 require (
 	github.com/cilium/cilium v1.17.3
-	github.com/go-logr/logr v1.4.2
+	github.com/go-logr/logr v1.4.3
 	github.com/onsi/ginkgo/v2 v2.22.0
 	github.com/onsi/gomega v1.36.1
 	k8s.io/api v0.32.1
