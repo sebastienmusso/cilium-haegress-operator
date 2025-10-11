@@ -2,7 +2,7 @@ module github.com/angeloxx/cilium-haegress-operator
 
 go 1.23.0
 
-toolchain go1.25.1
+toolchain go1.25.2
 
 require (
 	github.com/cilium/cilium v1.17.3
