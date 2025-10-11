@@ -31,3 +31,6 @@ output-dir/
 helm/charts/*.tgz
 
 cmd/main.go
+
+
+.DS_Store
