@@ -5,7 +5,7 @@ import "time"
 const (
 	HAEgressGatewayPolicyNamespace                   = "cilium.angeloxx.ch/haegressgatewaypolicy-namespace"
 	HAEgressGatewayPolicyName                        = "cilium.angeloxx.ch/haegressgatewaypolicy-name"
-	HAEgressGatewayPolicyLoadBalancerClassAnnotation = "kubernetes.io/load-balancer.class"
+	HAEgressGatewayPolicyLoadBalancerClassAnnotation = "service.kubernetes.io/load-balancer-class"
 	NodeNameAnnotation                               = "kubernetes.io/hostname"
 	EventEgressUpdateReason                          = "Updated"
 	KubeVIPVipHostAnnotation                         = "kube-vip.io/vipHost"
