@@ -63,7 +63,7 @@ and the service will be created in that namespace.
 
 You can override the `spec.loadBalancerClass` set on the generated Service by adding:
 
-    kubernetes.io/load-balancer.class: your-load-balancer-class
+    service.kubernetes.io/load-balancer-class: your-load-balancer-class
 
 to the HAEgressGatewayPolicy annotations. If omitted, the operator will use the default class configured at startup.
 
